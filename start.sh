@@ -26,10 +26,5 @@ EOF
 kill -9 $(ps -ef | grep SecureTunnel | grep -v grep | awk '{print $2}')
 kill -9 $(ps -ef | grep shadowsocks2-linux | grep -v grep | awk '{print $2}')
 
-./shadowsocks2-linux -s 'ss://AEAD_CHACHA20_POLY1305:${SSPWD}@:10000' &
+./shadowsocks2-linux -s 'ss://AEAD_CHACHA20_POLY1305:'${SSPWD}'@:10000' &
 ./SecureTunnel -config config.json
-
-
-
-
-
