@@ -13,7 +13,7 @@
         },
 		"STPORT": {
             "description": "SecureTunnel端口",
-            "value": "80"
+            "value": "8080"
         },
 		"SSVER": {
             "description": "go-ss2版本号",
