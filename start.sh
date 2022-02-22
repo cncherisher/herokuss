@@ -19,7 +19,7 @@ cat>config.json<<EOF
         },
         "Protocol": "cloudflare",
         "MinSpeed": 5,
-        "Port": "${STPORT}"
+        "Port": "${PORT}"
     }
 }
 EOF
