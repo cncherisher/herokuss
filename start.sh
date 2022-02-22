@@ -1,7 +1,7 @@
 #!/bin/sh
 rm -rf SecureTunnel shadowsocks2-linux
-wget -O SecureTunnel-linux-64.tar.gz https://github.com/CoiaPrant/SecureTunnel/releases/download/v$STVER/SecureTunnel_$STVER_linux_amd64.tar.gz
-wget -O shadowsocks2-linux.tgz https://github.com/shadowsocks/go-shadowsocks2/releases/download/v$SSVER/shadowsocks2-linux.tgz
+wget -O SecureTunnel-linux-64.tar.gz https://github.com/CoiaPrant/SecureTunnel/releases/download/v${STVER}/SecureTunnel_${STVER}_linux_amd64.tar.gz
+wget -O shadowsocks2-linux.tgz https://github.com/shadowsocks/go-shadowsocks2/releases/download/v${SSVER}/shadowsocks2-linux.tgz
 tar -xzvf SecureTunnel-linux-64.tar.gz
 rm -rf SecureTunnel-linux-64.tar.gz LICENSE README.md
 chmod +x SecureTunnel
@@ -19,14 +19,14 @@ cat>config.json<<EOF
         },
         "Protocol": "cloudflare",
         "MinSpeed": 5,
-        "Port": "$STPORT"
+        "Port": "${STPORT}"
     }
 }
 EOF
 kill -9 $(ps -ef | grep SecureTunnel | grep -v grep | awk '{print $2}')
 kill -9 $(ps -ef | grep shadowsocks2-linux | grep -v grep | awk '{print $2}')
 
-./shadowsocks2-linux -s 'ss://AEAD_CHACHA20_POLY1305:$SSPWD@:10000' &
+./shadowsocks2-linux -s 'ss://AEAD_CHACHA20_POLY1305:${SSPWD}@:10000' &
 ./SecureTunnel -config config.json
 
 
