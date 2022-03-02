@@ -9,7 +9,7 @@
         },
         "STVER": {
             "description": "SecureTunnel版本号",
-            "value": "v1.1.5"
+            "value": "1.1.5"
         },
 		"SSVER": {
             "description": "go-ss2版本号",
